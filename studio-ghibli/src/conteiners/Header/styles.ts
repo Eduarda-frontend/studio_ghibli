@@ -9,3 +9,9 @@ export const Titulo = styled.h1`
     text-shadow: 2px 0 #ffffff, 0 2px #ffffff, 0 -2px #ffffff, -2px 0 #ffffff,
         2px 2px #ffffff, -2px 2px #ffffff, 2px -2px #ffffff, -2px -2px #ffffff;
 `
+
+export const Paragrafo = styled.p`
+    margin-bottom: 40px;
+    text-align: center;
+
+`

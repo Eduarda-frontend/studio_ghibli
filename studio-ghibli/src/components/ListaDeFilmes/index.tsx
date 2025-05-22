@@ -10,16 +10,17 @@ const ListaDeFilmes = () => {
         <Lista>
             {filme?.map((filme) => (
                 <FilmeItem
-                key={filme.id}
-                image={filme.image}
-                title={filme.title}
-                release_date={filme.release_date}
-                running_time={filme.running_time}
-                description={filme.description}
-                director={filme.director}
-                producer={filme.producer}
-                rt_score={filme.rt_score}
-                />
+                    key={filme.id}
+                    image={filme.image}
+                    title={filme.title}
+                    release_date={filme.release_date}
+                    running_time={filme.running_time}
+                    description={filme.description}
+                    director={filme.director}
+                    producer={filme.producer}
+                    rt_score={filme.rt_score} 
+                    status={false} 
+                    id={""}                />
             ))}
         </Lista>
     )

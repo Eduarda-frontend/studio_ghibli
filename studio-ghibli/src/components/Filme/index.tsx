@@ -1,15 +1,10 @@
+import type { ChangeEvent } from "react"
+import type FilmeClass from "../../models/Filme"
 import { Imagem } from "./styles"
+import { useDispatch } from "react-redux"
+import { assistido } from "../../store/reducers/filtro"
 
-type Props = {
-    image: string
-    title: string
-    release_date: string
-    running_time: string
-    description: string
-    director: string
-    producer: string
-    rt_score: string
-}
+type Props = FilmeClass
 
 const FilmeItem = ({
     image,
@@ -19,8 +14,20 @@ const FilmeItem = ({
     description,
     director,
     producer,
-    rt_score
+    rt_score,
+    status,
+    id
 } : Props) => {
+    const dispatch = useDispatch()
+
+    function alteraStatusFilme( evento: ChangeEvent<HTMLInputElement>){
+        dispatch(
+            assistido({
+                id,
+                assistido: evento.target.checked
+            })
+        )
+    }
     return(
 
         <ul>
@@ -40,11 +47,21 @@ const FilmeItem = ({
 
                 <label htmlFor="assistido">
                     Marcar como assistido
-                <input type="checkbox"  id="assistido" />
+                <input 
+                type="checkbox" 
+                checked={status === true}
+                id={id}
+                onChange={alteraStatusFilme}
+                />
                 </label>
                 <label htmlFor="favoritar">
                     Favoritar filme
-                <input type="checkbox"  id="favoritar" />
+                <input 
+                type="checkbox" 
+                checked={status === true}
+                id={id}
+                onChange={alteraStatusFilme}
+                />
                 </label>
 
             </li>
